@@ -1,0 +1,20 @@
+.noScroll {
+  overflow: hidden;
+}
+.ReactModal__Content {
+  position: absolute;
+  top: '50%';
+  left: '50%';
+
+  margin-right: '-50%';
+  transform: 'translate(-50%, -50%)';
+  width: 800px;
+  height: 400px;
+  background-color: #fafafa;
+}
+
+.imgModal {
+  width: 1400px;
+  height: 800px;
+  object-fit: cover;
+}

@@ -1,0 +1,15 @@
+.loadBtn {
+  width: 200px;
+  height: 40px;
+  background-color: black;
+  border: none;
+  color: aliceblue;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.buttonBox {
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 100px;
+}

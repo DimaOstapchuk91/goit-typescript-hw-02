@@ -1,0 +1,14 @@
+.imgGalary {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.likesBox {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  border-top: none;
+  color: aliceblue;
+  background-color: black;
+}
