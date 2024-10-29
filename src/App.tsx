@@ -2,27 +2,29 @@ import toast, { Toaster } from 'react-hot-toast';
 import SearchBar from './components/SearchBar/SearchBar';
 import { fetchArticles } from './services/api';
 import ImageGallery from './components/ImageGallery/ImageGallery';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
+import { ApiImage } from './types';
 
-function App() {
-  const [searchValue, setSearchValue] = useState('');
-  const [dataImage, setDataImage] = useState([]);
-  const [page, setPage] = useState(1);
-  const [isLoader, setIsLoader] = useState(false);
-  const [getErr, setGetErr] = useState(false);
-  const [maxPage, setMaxPage] = useState(0);
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [imageModal, setImageModal] = useState('');
+const App: React.FC = () => {
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [dataImage, setDataImage] = useState<ApiImage[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [isLoader, setIsLoader] = useState<boolean>(false);
+  const [getErr, setGetErr] = useState<boolean>(false);
+  const [maxPage, setMaxPage] = useState<number>(0);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
+  const [imageModal, setImageModal] = useState<string>('');
+  console.log(dataImage);
 
   useEffect(() => {
     if (!searchValue) {
       return;
     }
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       try {
         setGetErr(false);
         setIsLoader(true);
@@ -41,12 +43,12 @@ function App() {
     getData();
   }, [page, searchValue]);
 
-  function openModal(imgUrl) {
+  function openModal(imgUrl: string): void {
     setImageModal(imgUrl);
     setIsOpenModal(true);
   }
 
-  function closeModal() {
+  function closeModal(): void {
     setIsOpenModal(false);
   }
 
@@ -61,13 +63,13 @@ function App() {
     });
   };
 
-  const getSubmitValue = value => {
+  const getSubmitValue = (value: string): void => {
     setSearchValue(value);
     setDataImage([]);
     setPage(1);
   };
 
-  const getLoadMoreImg = () => {
+  const getLoadMoreImg = (): void => {
     setPage(prev => prev + 1);
   };
 
@@ -90,6 +92,6 @@ function App() {
       <Toaster position='top-center' reverseOrder={false} />
     </>
   );
-}
+};
 
 export default App;
