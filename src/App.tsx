@@ -1,13 +1,17 @@
 import toast, { Toaster } from 'react-hot-toast';
-import SearchBar from './components/SearchBar/SearchBar';
-import { fetchArticles } from './services/api';
-import ImageGallery from './components/ImageGallery/ImageGallery';
 import React, { useEffect, useState } from 'react';
+import { fetchArticles } from './services/api';
+
+// Components
+import ImageGallery from './components/ImageGallery/ImageGallery';
+import SearchBar from './components/SearchBar/SearchBar';
 import Loader from './components/Loader/Loader';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
-import { ApiImage } from './types';
+
+// Interface
+import { ApiImage, modalOpenData } from './types';
 
 const App: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -17,7 +21,10 @@ const App: React.FC = () => {
   const [getErr, setGetErr] = useState<boolean>(false);
   const [maxPage, setMaxPage] = useState<number>(0);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [imageModal, setImageModal] = useState<string>('');
+  const [imageModal, setImageModal] = useState<modalOpenData>({
+    name: '',
+    url: '',
+  });
   console.log(dataImage);
 
   useEffect(() => {
@@ -43,7 +50,7 @@ const App: React.FC = () => {
     getData();
   }, [page, searchValue]);
 
-  function openModal(imgUrl: string): void {
+  function openModal(imgUrl: modalOpenData): void {
     setImageModal(imgUrl);
     setIsOpenModal(true);
   }
@@ -85,7 +92,7 @@ const App: React.FC = () => {
       )}
       {getErr && <ErrorMessage />}
       <ImageModal
-        modalIsOpen={isOpenModal}
+        isOpenModal={isOpenModal}
         closeModal={closeModal}
         imageModal={imageModal}
       />

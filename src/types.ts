@@ -1,5 +1,6 @@
 // * Interface for image data from the API
 export interface ApiImage {
+  id: string;
   description: string;
   likes: number;
   urls: {
@@ -16,4 +17,11 @@ export interface FetchResponse {
   results: ApiImage[];
   total_pages: number;
   total: number;
+}
+
+// * Interface in ImageGallery Open modal
+
+export interface modalOpenData {
+  url: string;
+  name: string;
 }

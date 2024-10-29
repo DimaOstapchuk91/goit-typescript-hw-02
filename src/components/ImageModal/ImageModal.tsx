@@ -1,8 +1,20 @@
 import Modal from 'react-modal';
 import s from './ImageModal.module.css';
+import { modalOpenData } from '../../types';
+import { FC } from 'react';
 
-const ImageModal = ({ modalIsOpen, closeModal, imageModal }) => {
-  const customStyles = {
+interface ImageModalProps {
+  isOpenModal: boolean;
+  closeModal: () => void;
+  imageModal: modalOpenData;
+}
+
+const ImageModal: FC<ImageModalProps> = ({
+  isOpenModal,
+  closeModal,
+  imageModal,
+}) => {
+  const customStyles: any = {
     overlay: {
       position: 'fixed',
       top: 0,
@@ -18,7 +30,7 @@ const ImageModal = ({ modalIsOpen, closeModal, imageModal }) => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
-      with: 1400,
+      width: 1400,
       height: 802,
       padding: 0,
     },
@@ -28,7 +40,7 @@ const ImageModal = ({ modalIsOpen, closeModal, imageModal }) => {
   return (
     <div>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={isOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         bodyOpenClassName={s.noScroll}

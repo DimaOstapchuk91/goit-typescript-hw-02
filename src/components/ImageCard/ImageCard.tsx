@@ -1,6 +1,13 @@
+import { FC } from 'react';
 import s from './ImageCard.module.css';
+import { ApiImage, modalOpenData } from '../../types';
 
-const ImageCard = ({ dataImage, openModal }) => {
+interface ImageCardProps {
+  dataImage: ApiImage;
+  openModal: (imgUrl: modalOpenData) => void;
+}
+
+const ImageCard: FC<ImageCardProps> = ({ dataImage, openModal }) => {
   const { urls, description, likes } = dataImage;
 
   return (
