@@ -6,6 +6,11 @@
   color: aliceblue;
   font-weight: bold;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.loadBtn:hover {
+  background-color: rgb(32, 28, 28);
 }
 
 .buttonBox {
