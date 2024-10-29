@@ -25,7 +25,6 @@ const App: React.FC = () => {
     name: '',
     url: '',
   });
-  console.log(dataImage);
 
   useEffect(() => {
     if (!searchValue) {
