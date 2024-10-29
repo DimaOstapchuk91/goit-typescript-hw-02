@@ -15,7 +15,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSubmit }) => {
     // const search = element.searchInput as any;
     // const inputValue: any = search.value;
 
-    const inputValue = (
+    const inputValue: string = (
       form.elements.namedItem('searchInput') as HTMLInputElement
     )?.value;
 
