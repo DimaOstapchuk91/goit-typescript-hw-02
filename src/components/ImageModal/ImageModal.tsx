@@ -1,12 +1,12 @@
 import Modal from 'react-modal';
 import s from './ImageModal.module.css';
-import { modalOpenData } from '../../types';
+import { ModalOpenData } from '../../types';
 import { FC } from 'react';
 
 interface ImageModalProps {
   isOpenModal: boolean;
   closeModal: () => void;
-  imageModal: modalOpenData;
+  imageModal: ModalOpenData;
 }
 
 const ImageModal: FC<ImageModalProps> = ({
