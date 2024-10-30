@@ -11,7 +11,7 @@ import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
 
 // Interface
-import { ApiImage, modalOpenData } from './types';
+import { ApiImage, ModalOpenData } from './types';
 
 const App: React.FC = () => {
   const [searchValue, setSearchValue] = useState<string>('');
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   const [getErr, setGetErr] = useState<boolean>(false);
   const [maxPage, setMaxPage] = useState<number>(0);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
-  const [imageModal, setImageModal] = useState<modalOpenData>({
+  const [imageModal, setImageModal] = useState<ModalOpenData>({
     name: '',
     url: '',
   });
@@ -49,7 +49,7 @@ const App: React.FC = () => {
     getData();
   }, [page, searchValue]);
 
-  function openModal(imgUrl: modalOpenData): void {
+  function openModal(imgUrl: ModalOpenData): void {
     setImageModal(imgUrl);
     setIsOpenModal(true);
   }
