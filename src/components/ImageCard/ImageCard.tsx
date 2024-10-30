@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import s from './ImageCard.module.css';
-import { ApiImage, modalOpenData } from '../../types';
+import { ApiImage, ModalOpenData } from '../../types';
 
 interface ImageCardProps {
   dataImage: ApiImage;
-  openModal: (imgUrl: modalOpenData) => void;
+  openModal: (imgUrl: ModalOpenData) => void;
 }
 
 const ImageCard: FC<ImageCardProps> = ({ dataImage, openModal }) => {

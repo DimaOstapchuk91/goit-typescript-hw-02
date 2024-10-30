@@ -1,12 +1,12 @@
 import s from './ImageGallery.module.css';
 
 import ImageCard from '../ImageCard/ImageCard';
-import { ApiImage, modalOpenData } from '../../types';
+import { ApiImage, ModalOpenData } from '../../types';
 import { FC } from 'react';
 
 interface ImageGalleryProps {
   dataImage: ApiImage[];
-  openModal: (imgUrl: modalOpenData) => void;
+  openModal: (imgUrl: ModalOpenData) => void;
 }
 
 const ImageGallery: FC<ImageGalleryProps> = ({ dataImage, openModal }) => {

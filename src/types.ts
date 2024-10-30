@@ -21,7 +21,7 @@ export interface FetchResponse {
 
 // * Interface in ImageGallery Open modal
 
-export interface modalOpenData {
+export interface ModalOpenData {
   url: string;
   name: string;
 }
